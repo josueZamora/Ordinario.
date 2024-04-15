@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Compras</title>
+    <script>
+        function generarResumenCompras() {
+            // Obtener el elemento del carrito y los productos
+            var carrito = document.getElementById("carrito");
+            var productos = carrito.getElementsByClassName("producto");
+
+            // Crear una variable para almacenar el resumen
+            var resumen = "Resumen de Compras:\n";
+
+            // Recorrer cada producto en el carrito
+            for (var i = 0; i < productos.length; i++) {
+                var nombreProducto = productos[i].getElementsByClassName("nombre")[0].innerText;
+                var precioProducto = productos[i].getElementsByClassName("precio")[0].innerText;
+                resumen += nombreProducto + ": " + precioProducto + "\n";
+            }
+
+            // Mostrar el resumen en una ventana de alerta
+            alert(resumen);
+        }
+    </script>
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+    <div id="carrito">
+        <div class="producto">
+            <span class="nombre">Zapatos</span>
+            <span class="precio">$50.00</span>
+        </div>
+        <div class="producto">
+            <span class="nombre">Audífonos</span>
+            <span class="precio">$20.00</span>
+        </div>
+        <!-- Otros productos aquí -->
+    </div>
+    <button onclick="generarResumenCompras()">Generar Resumen de Compras</button>
+</body>
+</html>
